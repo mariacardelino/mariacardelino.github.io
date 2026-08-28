@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>plants · mecarde</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,400;0,600;1,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+<header>
+  <div class="wrap bar">
+    <a href="../index.html" class="brand">mecarde</a>
+    <nav>
+      <a href="../index.html">home</a>
+      <a href="../projects.html">projects</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+  <section>
+    <p style="color:var(--ink-dim); margin-bottom:1em">
+      Georgia Native Plant Random Generator. Click the button for a random
+      native plant, pulled from the Georgia Native Plant Society's
+      <a href="https://gnps.org/georgias-native-plants/search-native-plants/" target="_blank" rel="noopener noreferrer">plant database</a>.
+    </p>
+    <p style="color:var(--ink-dim)">
+      All names, descriptions, and photos are sourced from and © the
+      <a href="https://gnps.org/" target="_blank" rel="noopener noreferrer">Georgia Native Plant Society</a> (gnps.org).
+    </p>
+  </section>
+
+  <section>
+    <button class="go" id="generate">Georgia Native Plant Random Generator</button>
+
+    <div class="plant-card" id="plant-card" hidden>
+      <figure>
+        <img id="plant-photo" src="" alt="">
+        <figcaption>Photo &amp; description: <a href="https://gnps.org/georgias-native-plants/search-native-plants/" target="_blank" rel="noopener noreferrer">Georgia Native Plant Society</a></figcaption>
+      </figure>
+      <div class="plant-body">
+        <h3 id="plant-name"></h3>
+        <p class="plant-sci" id="plant-sci"></p>
+        <p class="plant-desc" id="plant-desc"></p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="wrap">last updated August 2026</footer>
+
+<script src="../js/plants.js"></script>
+</body>
+</html>

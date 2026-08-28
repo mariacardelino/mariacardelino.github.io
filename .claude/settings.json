@@ -1,0 +1,7 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python3 __TRACKED_VAR__/list_shared_links.py .secrets/dropbox_token.txt __TRACKED_VAR__/shared_links.json)"
+    ]
+  }
+}
