@@ -3,3 +3,4 @@ images/*.jpg
 images/*.JPG
 images/*.jpeg
 images/*.JPEG
+.secrets/
