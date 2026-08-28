@@ -97,7 +97,6 @@ const PLANTS = [
 ];
 
 const btn = document.getElementById("generate");
-const placeholder = document.getElementById("plant-placeholder");
 const card = document.getElementById("plant-card");
 const photo = document.getElementById("plant-photo");
 const nameEl = document.getElementById("plant-name");
@@ -111,7 +110,6 @@ function showRandomPlant() {
   nameEl.textContent = plant.name;
   sciEl.textContent = plant.sci;
   descEl.textContent = plant.desc;
-  placeholder.hidden = true;
   card.hidden = false;
 }
 
