@@ -155,6 +155,17 @@ canvas {
 }
 .presets a:hover { border-color: var(--accent); background: var(--accent-soft); }
 
+/* ── nature specimens ──────────────────────────────── */
+.specimens { display: flex; gap: 24px; flex-wrap: wrap; margin-top: 24px; }
+.specimens figure { flex: 1 1 240px; max-width: 320px; }
+.specimens img {
+  width: 100%; height: auto; display: block;
+  border: 1px solid var(--line); border-radius: 8px;
+}
+.specimens figcaption {
+  font-size: .65rem; line-height: 1.4; color: var(--ink-dim); margin-top: 6px;
+}
+
 /* ── photo grid ─────────────────────────────────────── */
 .photo-grid {
   display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px;

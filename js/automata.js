@@ -75,6 +75,15 @@ function render(rule) {
   drawBits(rule);
 }
 
+function clearCanvas() {
+  const cs = getComputedStyle(document.documentElement);
+  const surface = cs.getPropertyValue('--surface').trim() || '#fffdf8';
+  ctx.fillStyle = surface;
+  ctx.fillRect(0, 0, canvas.width, canvas.height);
+  bitsEl.innerHTML = '';
+  readEl.innerHTML = '';
+}
+
 function run() {
   let v = parseInt(input.value, 10);
   if (isNaN(v)) v = 30;
@@ -97,6 +106,9 @@ document.querySelectorAll('.presets a').forEach(a =>
 );
 
 const q = parseInt(new URLSearchParams(location.search).get('rule'), 10);
-if (!isNaN(q)) input.value = Math.max(0, Math.min(255, q));
-
-run();
+if (!isNaN(q)) {
+  input.value = Math.max(0, Math.min(255, q));
+  run();
+} else {
+  clearCanvas();
+}
