@@ -115,13 +115,13 @@ h2::before { content: none; }
 }
 .field input[type=number] {
   background: var(--bg); border: 1px solid var(--line); color: var(--ink);
-  font-family: var(--serif); font-size: 1.2rem; padding: 9px 13px;
-  border-radius: 6px; width: 120px;
+  font-family: var(--serif); font-size: 1.2rem; padding: 0 13px;
+  border-radius: 6px; width: 120px; height: 42px;
 }
 .field select {
-  background: var(--bg); border: 1px solid var(--line); color: var(--ink);
-  font-family: var(--sans); font-size: .9rem; padding: 9px 13px;
-  border-radius: 6px;
+  background: var(--accent); border: 1px solid var(--accent); color: #fff;
+  font-family: var(--sans); font-weight: 600; font-size: .9rem; padding: 0 13px;
+  border-radius: 6px; height: 42px; cursor: pointer;
 }
 .field input:focus, .field select:focus { outline: 2px solid var(--accent); outline-offset: 1px; }
 button.go {

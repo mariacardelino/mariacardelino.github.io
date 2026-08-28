@@ -71,8 +71,7 @@ function render(rule) {
   }
 
   readEl.innerHTML =
-    `rule <b>${rule}</b> · binary <b>${rule.toString(2).padStart(8, '0')}</b> · ` +
-    `${GENS} generations from a single seed`;
+    `rule <b>${rule}</b> · binary <b>${rule.toString(2).padStart(8, '0')}</b>`;
   drawBits(rule);
 }
 
