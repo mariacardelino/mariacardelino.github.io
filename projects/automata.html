@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>cellular automata · playground</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+<header>
+  <div class="wrap bar">
+    <a href="../index.html" class="brand">playground</a>
+    <nav>
+      <a href="../index.html">home</a>
+      <a href="../projects.html">projects</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+  <section class="hero" style="padding-bottom:24px">
+    <p class="eyebrow">interactive · rule 0–255</p>
+    <h1>Elementary <span class="live">Cellular Automata</span></h1>
+    <p>Each row is one generation. A cell's next state depends only on itself and its two neighbours — 8 possible neighbourhoods, 8 output bits, and those 8 bits, read as a number, are the rule.</p>
+  </section>
+
+  <section style="padding-top:0">
+    <div class="controls">
+      <div class="field">
+        <label for="rule">rule</label>
+        <input type="number" id="rule" min="0" max="255" value="30" step="1">
+      </div>
+      <button class="go" id="go">render</button>
+      <div class="field">
+        <label>rule as neighbourhood map</label>
+        <div class="rulebits" id="rulebits"></div>
+      </div>
+    </div>
+
+    <canvas id="ca" aria-label="cellular automaton visualization"></canvas>
+    <p class="readout" id="readout"></p>
+
+    <div class="presets">
+      <span>try:</span>
+      <a href="#" data-rule="30">30 chaos</a>
+      <a href="#" data-rule="90">90 sierpiński</a>
+      <a href="#" data-rule="110">110 turing-complete</a>
+      <a href="#" data-rule="184">184 traffic</a>
+      <a href="#" data-rule="150">150 xor</a>
+      <a href="#" data-rule="54">54</a>
+    </div>
+  </section>
+
+  <section>
+    <h2 data-n="i">how to read it</h2>
+    <p style="color:var(--ink-dim);max-width:60ch">
+      The top row starts with a single live cell. Read the neighbourhood map above:
+      each 3-digit label is a possible <em>left-self-right</em> pattern, and the box
+      shows whether that pattern turns the middle cell on (1) or off (0) next step.
+      Most rules are dull. A handful — 30, 90, 110 — produce structure that never
+      quite repeats.
+    </p>
+  </section>
+</main>
+
+<footer class="wrap">built for fun · hosted on github pages</footer>
+
+<script src="../js/automata.js"></script>
+</body>
+</html>

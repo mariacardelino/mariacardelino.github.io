@@ -1,0 +1,175 @@
+/* ── tokens ─────────────────────────────────────────── */
+:root {
+  --bg:        #0e1116;
+  --bg-cell:   #161b22;
+  --ink:       #e6edf3;
+  --ink-dim:   #8b949e;
+  --line:      #2a313c;
+  --live:      #5ee6c4;   /* live cell / accent */
+  --live-glow: #5ee6c433;
+  --warn:      #f0883e;
+  --mono: "JetBrains Mono", "SF Mono", ui-monospace, "Cascadia Code", Menlo, Consolas, monospace;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--mono);
+  line-height: 1.55;
+  min-height: 100vh;
+  /* faint cell grid in the backdrop */
+  background-image:
+    linear-gradient(var(--line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--line) 1px, transparent 1px);
+  background-size: 28px 28px;
+  background-position: -1px -1px;
+}
+
+.wrap { max-width: 880px; margin: 0 auto; padding: 0 24px; }
+
+/* ── header / nav ───────────────────────────────────── */
+header {
+  border-bottom: 1px solid var(--line);
+  background: rgba(14,17,22,.85);
+  backdrop-filter: blur(6px);
+  position: sticky; top: 0; z-index: 10;
+}
+.bar {
+  display: flex; align-items: center; justify-content: space-between;
+  height: 60px;
+}
+.brand {
+  font-weight: 700; letter-spacing: .04em; color: var(--ink);
+  text-decoration: none; font-size: .95rem;
+}
+.brand::before { content: "▚ "; color: var(--live); }
+nav a {
+  color: var(--ink-dim); text-decoration: none; margin-left: 22px;
+  font-size: .85rem; letter-spacing: .03em; transition: color .15s;
+}
+nav a:hover, nav a[aria-current="page"] { color: var(--live); }
+
+/* ── hero ───────────────────────────────────────────── */
+.hero { padding: 72px 0 40px; }
+.eyebrow {
+  color: var(--ink-dim); font-size: .75rem; letter-spacing: .22em;
+  text-transform: uppercase; margin-bottom: 18px;
+}
+.hero h1 {
+  font-size: clamp(2rem, 6vw, 3.4rem); line-height: 1.05;
+  font-weight: 800; letter-spacing: -.01em;
+}
+.hero h1 .live { color: var(--live); }
+.hero p {
+  color: var(--ink-dim); max-width: 46ch; margin-top: 18px; font-size: 1rem;
+}
+
+/* ── generic sections ───────────────────────────────── */
+section { padding: 40px 0; }
+h2 {
+  font-size: 1.1rem; letter-spacing: .04em; margin-bottom: 20px;
+  display: flex; align-items: baseline; gap: 12px;
+}
+h2::before {
+  content: attr(data-n); color: var(--live); font-size: .8rem;
+  border: 1px solid var(--line); padding: 2px 7px; border-radius: 3px;
+}
+
+/* ── project cards / tabs ───────────────────────────── */
+.tabs {
+  display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 26px;
+  border-bottom: 1px solid var(--line); padding-bottom: 16px;
+}
+.tab {
+  background: var(--bg-cell); border: 1px solid var(--line);
+  color: var(--ink-dim); padding: 7px 15px; border-radius: 4px;
+  font-family: var(--mono); font-size: .82rem; cursor: pointer;
+  text-decoration: none; transition: all .15s;
+}
+.tab:hover { color: var(--ink); border-color: var(--live); }
+.tab.active { color: var(--bg); background: var(--live); border-color: var(--live); }
+
+.grid {
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 16px;
+}
+.card {
+  background: var(--bg-cell); border: 1px solid var(--line);
+  border-radius: 6px; padding: 20px; text-decoration: none; color: inherit;
+  display: block; transition: border-color .15s, transform .15s;
+}
+.card:hover { border-color: var(--live); transform: translateY(-2px); }
+.card h3 { font-size: .95rem; margin-bottom: 8px; }
+.card p  { color: var(--ink-dim); font-size: .82rem; }
+.card .tag {
+  display: inline-block; margin-top: 12px; font-size: .7rem;
+  color: var(--live); letter-spacing: .08em; text-transform: uppercase;
+}
+.card[hidden] { display: none; }
+
+/* ── automata controls ──────────────────────────────── */
+.controls {
+  display: flex; gap: 18px; align-items: flex-end; flex-wrap: wrap;
+  background: var(--bg-cell); border: 1px solid var(--line);
+  border-radius: 6px; padding: 20px; margin-bottom: 24px;
+}
+.field { display: flex; flex-direction: column; gap: 6px; }
+.field label {
+  font-size: .72rem; letter-spacing: .1em; text-transform: uppercase;
+  color: var(--ink-dim);
+}
+.field input[type=number] {
+  background: var(--bg); border: 1px solid var(--line); color: var(--ink);
+  font-family: var(--mono); font-size: 1.1rem; padding: 8px 12px;
+  border-radius: 4px; width: 120px;
+}
+.field input:focus { outline: 2px solid var(--live); outline-offset: 1px; }
+button.go {
+  background: var(--live); color: var(--bg); border: none;
+  font-family: var(--mono); font-weight: 700; font-size: .85rem;
+  padding: 10px 20px; border-radius: 4px; cursor: pointer;
+  letter-spacing: .04em;
+}
+button.go:hover { filter: brightness(1.08); }
+.rulebits {
+  display: flex; gap: 4px; align-items: flex-end;
+}
+.bit {
+  font-size: .68rem; text-align: center; color: var(--ink-dim);
+}
+.bit b {
+  display: block; width: 22px; height: 22px; line-height: 22px;
+  border: 1px solid var(--line); border-radius: 3px; margin-bottom: 3px;
+  color: var(--ink); font-weight: 700;
+}
+.bit b.on { background: var(--live); color: var(--bg); border-color: var(--live); }
+
+canvas {
+  width: 100%; height: auto; border: 1px solid var(--line);
+  border-radius: 6px; background: #000; display: block; image-rendering: pixelated;
+}
+.readout { color: var(--ink-dim); font-size: .8rem; margin-top: 10px; }
+.readout b { color: var(--live); }
+.presets { margin-top: 14px; }
+.presets span { color: var(--ink-dim); font-size: .78rem; margin-right: 8px; }
+.presets a {
+  color: var(--live); text-decoration: none; font-size: .78rem;
+  border: 1px solid var(--line); padding: 2px 8px; border-radius: 3px;
+  margin-right: 6px; display: inline-block; margin-bottom: 4px;
+}
+.presets a:hover { border-color: var(--live); }
+
+/* ── footer ─────────────────────────────────────────── */
+footer {
+  border-top: 1px solid var(--line); margin-top: 40px; padding: 28px 0;
+  color: var(--ink-dim); font-size: .78rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .card { transition: none; }
+}
