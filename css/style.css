@@ -218,13 +218,24 @@ canvas {
 .recipe-group[hidden], .recipe-items li[hidden] { display: none; }
 
 /* ── plant generator ────────────────────────────────── */
+.plant-layout {
+  display: flex; gap: 32px; align-items: flex-start;
+}
+.plant-left { flex: 0 1 300px; }
+.plant-right { flex: 1 1 380px; min-width: 0; }
+
+.plant-placeholder {
+  color: var(--ink-dim); font-size: .9rem; border: 1px dashed var(--line);
+  border-radius: 10px; padding: 40px 20px; text-align: center;
+}
+
 .plant-card {
-  margin-top: 26px; background: var(--surface); border: 1px solid var(--line);
-  border-radius: 10px; overflow: hidden; max-width: 480px;
+  background: var(--surface); border: 1px solid var(--line);
+  border-radius: 10px; overflow: hidden;
 }
 .plant-card figure { margin: 0; }
 .plant-card img {
-  width: 100%; height: 320px; object-fit: cover; display: block;
+  width: 100%; height: 260px; object-fit: cover; display: block;
   border-bottom: 1px solid var(--line);
 }
 .plant-card figcaption {
@@ -235,6 +246,11 @@ canvas {
 .plant-body h3 { font-family: var(--serif); font-size: 1.3rem; margin-bottom: 4px; }
 .plant-sci { font-style: italic; color: var(--accent); font-size: .9rem; margin-bottom: 12px; }
 .plant-desc { color: var(--ink-dim); font-size: .92rem; }
+
+@media (max-width: 640px) {
+  .plant-layout { flex-direction: column; }
+  .plant-left { flex-basis: auto; }
+}
 
 /* ── footer ─────────────────────────────────────────── */
 footer {

@@ -1,93 +1,103 @@
 // Plant data sourced from the Georgia Native Plant Society
-// https://gnps.org/georgias-native-plants/search-native-plants/
+// https://gnps.org/georgias-native-plants/search-native-plants/ (pages 1-7)
 const PLANTS = [
-  {
-    name: "American Beautyberry",
-    sci: "Callicarpa americana",
-    desc: "Native Americans used the roots, leaves, and branches for medicinal purposes. Crushed leaves repel mosquitos.",
-    photo: "https://gnps.org/wp-content/uploads/bfi_thumb/C-americana-main-photo-qx0fso3dsfbjy0djp8cp3zaoprdbb2rkpfw3ytk6n4.jpeg"
-  },
-  {
-    name: "American Holly",
-    sci: "Ilex opaca",
-    desc: "Evergreen tree; grows best in sun with moist, acidic soil; produces a pyramidal shape with berries.",
-    photo: "https://gnps.org/wp-content/uploads/bfi_thumb/Ilex-opaca-fruit-097-qx0fne7zfw3mss1chya24b7kpxd647tsnc410xdqc2.jpg"
-  },
-  {
-    name: "American Snowbell",
-    sci: "Styrax americanus",
-    desc: "Fragrant small specimen tree; prefers moist, acidic soil in sun to part shade.",
-    photo: "https://gnps.org/wp-content/uploads/bfi_thumb/Styrax-americanus-qx0ft6w5l41ae7m8ngh8hujwlgsnl0u7g0xtkcsbci.jpg"
-  },
-  {
-    name: "Bellwort",
-    sci: "Uvularia perfoliata",
-    desc: "Perennial with yellow flowers; thought that blossoms resemble the uvula. Thrives in part shade with organic soil.",
-    photo: "https://gnps.org/wp-content/uploads/bfi_thumb/uvularia-perfoliata-04_10_14-qx0ftj421yi0l54ho3rdw9gwbh4fd36ptpf4sya6qk.jpg"
-  },
-  {
-    name: "Bigleaf Magnolia",
-    sci: "Magnolia macrophylla",
-    desc: "Large deciduous tree with fragrant flowers; needs loose, moist soil and protection from strong winds.",
-    photo: "https://gnps.org/wp-content/uploads/bfi_thumb/Magnolia-macrophylla-2011-qx0g56c2q2fwf87jo4yzsboh9bq4q3f03cdoud0l2w.jpg"
-  },
-  {
-    name: "Birdfoot Violet",
-    sci: "Viola pedata",
-    desc: "Perennial; requires no care once established in well-drained, sandy soil; a butterfly host plant.",
-    photo: "https://gnps.org/wp-content/uploads/bfi_thumb/viola_pedata_04-10-04-qx0g3w9zf6oumc2g5329w5aw5g158xc5l0ewbswvsy.jpg"
-  },
-  {
-    name: "Black Cherry",
-    sci: "Prunus serotina",
-    desc: "Deciduous tree; wood valued for furniture; fruit and inner bark used medicinally.",
-    photo: "https://gnps.org/wp-content/uploads/bfi_thumb/prunus-serotina-3720b-qx0fji615krwqvos7rqnasjw7ijh9bdsg2woip5cjc.jpg"
-  },
-  {
-    name: "Black Cohosh",
-    sci: "Actaea racemosa",
-    desc: "Perennial; tall flower spikes are showy, particularly against dark backgrounds. Prefers partial shade with moist soil.",
-    photo: "https://gnps.org/wp-content/uploads/bfi_thumb/actaea_racemosa_06-06-06-qx0fz3boho43a31o70ax5cy2ujplwm9jl8dk0w1eee.jpg"
-  },
-  {
-    name: "Bloodroot",
-    sci: "Sanguinaria canadensis",
-    desc: "Spring ephemeral perennial; reddish-orange sap has been used as a dye. Best in partial shade with humus soil.",
-    photo: "https://gnps.org/wp-content/uploads/bfi_thumb/2012_Sanguinaria_canadensis_02-qx0g0plo9ebv9wp0qphsfy8nofqd5uowh8tns1mxlm.jpg"
-  },
-  {
-    name: "Blue-eyed Grass",
-    sci: "Sisyrinchium angustifolium",
-    desc: "Perennial; not a grass at all, but a member of the Iris family. Prefers sun and medium-wet soil.",
-    photo: "https://gnps.org/wp-content/uploads/bfi_thumb/Sisyrinchium-angustifolium-05-08-13-qx0fj34m487bl4amnl8m6wcipcllu5q320gwu9rp3m.jpg"
-  },
-  {
-    name: "Blue-stem Goldenrod",
-    sci: "Solidago caesia",
-    desc: "Perennial characterized by a smooth, purplish-blue stem with arching flower sprays; thrives in part shade.",
-    photo: "https://gnps.org/wp-content/uploads/bfi_thumb/solidago-caesia-07_07_14-qx0fhypjycnzpvxc7lrnpojp5s4tn69mkgf17dfmj6.jpg"
-  },
-  {
-    name: "Butterfly Milkweed",
-    sci: "Asclepias tuberosa",
-    desc: "Perennial; drought-tolerant; a monarch host plant that may rebloom later in summer. Colorful orange flowers.",
-    photo: "https://gnps.org/wp-content/uploads/bfi_thumb/asclepias-tuberosa_06_05_14-qx0frjobmjs82s0998vqmrhv66wj43b47vu8bx83fc.jpg"
-  },
-  {
-    name: "Cardinal Flower",
-    sci: "Lobelia cardinalis",
-    desc: "Perennial with red flowers; attracts hummingbirds; prefers full sun to partial shade near wetlands.",
-    photo: "https://gnps.org/wp-content/uploads/bfi_thumb/Lobelia-cardinalis-2374a-qx0fmoucbd4w3b27m5b4qzm4oiu9ce11juhx2gfcsu.jpg"
-  },
-  {
-    name: "Carolina Silverbell",
-    sci: "Halesia carolina",
-    desc: "Tree with nice yellow fall color and mid-spring blooms; needs moist, acidic soil high in organic matter.",
-    photo: "https://gnps.org/wp-content/uploads/bfi_thumb/halesia-caroliniana-qx0fqrh5xipmeh57twoxjym1cmrip676409nxmdwhk.jpg"
-  }
+  { name: "American Beautyberry", sci: "Callicarpa americana", desc: "Native Americans used the roots, leaves, and branches for medicinal purposes. Crushed leaves repel mosquitos.", photo: "https://gnps.org/wp-content/uploads/bfi_thumb/C-americana-main-photo-qx0fso3dsfbjy0djp8cp3zaoprdbb2rkpfw3ytk6n4.jpeg" },
+  { name: "American Holly", sci: "Ilex opaca", desc: "Evergreen tree; grows best in sun with moist, acidic soil; produces a pyramidal shape with berries.", photo: "https://gnps.org/wp-content/uploads/bfi_thumb/Ilex-opaca-fruit-097-qx0fne7zfw3mss1chya24b7kpxd647tsnc410xdqc2.jpg" },
+  { name: "American Snowbell", sci: "Styrax americanus", desc: "Fragrant small specimen tree; prefers moist, acidic soil in sun to part shade.", photo: "https://gnps.org/wp-content/uploads/bfi_thumb/Styrax-americanus-qx0ft6w5l41ae7m8ngh8hujwlgsnl0u7g0xtkcsbci.jpg" },
+  { name: "Bellwort", sci: "Uvularia perfoliata", desc: "Perennial with yellow flowers; thought that blossoms resemble the uvula. Thrives in part shade with organic soil.", photo: "https://gnps.org/wp-content/uploads/bfi_thumb/uvularia-perfoliata-04_10_14-qx0ftj421yi0l54ho3rdw9gwbh4fd36ptpf4sya6qk.jpg" },
+  { name: "Bigleaf Magnolia", sci: "Magnolia macrophylla", desc: "Large deciduous tree with fragrant flowers; needs loose, moist soil and protection from strong winds.", photo: "https://gnps.org/wp-content/uploads/bfi_thumb/Magnolia-macrophylla-2011-qx0g56c2q2fwf87jo4yzsboh9bq4q3f03cdoud0l2w.jpg" },
+  { name: "Birdfoot Violet", sci: "Viola pedata", desc: "Perennial; requires no care once established in well-drained, sandy soil; a butterfly host plant.", photo: "https://gnps.org/wp-content/uploads/bfi_thumb/viola_pedata_04-10-04-qx0g3w9zf6oumc2g5329w5aw5g158xc5l0ewbswvsy.jpg" },
+  { name: "Black Cherry", sci: "Prunus serotina", desc: "Deciduous tree; wood valued for furniture; fruit and inner bark used medicinally.", photo: "https://gnps.org/wp-content/uploads/bfi_thumb/prunus-serotina-3720b-qx0fji615krwqvos7rqnasjw7ijh9bdsg2woip5cjc.jpg" },
+  { name: "Black Cohosh", sci: "Actaea racemosa", desc: "Perennial; tall flower spikes are showy, particularly against dark backgrounds. Prefers partial shade with moist soil.", photo: "https://gnps.org/wp-content/uploads/bfi_thumb/actaea_racemosa_06-06-06-qx0fz3boho43a31o70ax5cy2ujplwm9jl8dk0w1eee.jpg" },
+  { name: "Bloodroot", sci: "Sanguinaria canadensis", desc: "Spring ephemeral perennial; reddish-orange sap has been used as a dye. Best in partial shade with humus soil.", photo: "https://gnps.org/wp-content/uploads/bfi_thumb/2012_Sanguinaria_canadensis_02-qx0g0plo9ebv9wp0qphsfy8nofqd5uowh8tns1mxlm.jpg" },
+  { name: "Blue-eyed Grass", sci: "Sisyrinchium angustifolium", desc: "Perennial; not a grass at all, but a member of the Iris family. Prefers sun and medium-wet soil.", photo: "https://gnps.org/wp-content/uploads/bfi_thumb/Sisyrinchium-angustifolium-05-08-13-qx0fj34m487bl4amnl8m6wcipcllu5q320gwu9rp3m.jpg" },
+  { name: "Blue-stem Goldenrod", sci: "Solidago caesia", desc: "Perennial characterized by a smooth, purplish-blue stem with arching flower sprays; thrives in part shade.", photo: "https://gnps.org/wp-content/uploads/bfi_thumb/solidago-caesia-07_07_14-qx0fhypjycnzpvxc7lrnpojp5s4tn69mkgf17dfmj6.jpg" },
+  { name: "Butterfly Milkweed", sci: "Asclepias tuberosa", desc: "Perennial; drought-tolerant; a monarch host plant that may rebloom later in summer. Colorful orange flowers.", photo: "https://gnps.org/wp-content/uploads/bfi_thumb/asclepias-tuberosa_06_05_14-qx0frjobmjs82s0998vqmrhv66wj43b47vu8bx83fc.jpg" },
+  { name: "Cardinal Flower", sci: "Lobelia cardinalis", desc: "Perennial with red flowers; attracts hummingbirds; prefers full sun to partial shade near wetlands.", photo: "https://gnps.org/wp-content/uploads/bfi_thumb/Lobelia-cardinalis-2374a-qx0fmoucbd4w3b27m5b4qzm4oiu9ce11juhx2gfcsu.jpg" },
+  { name: "Carolina Silverbell", sci: "Halesia carolina", desc: "Tree with nice yellow fall color and mid-spring blooms; needs moist, acidic soil high in organic matter.", photo: "https://gnps.org/wp-content/uploads/bfi_thumb/halesia-caroliniana-qx0fqrh5xipmeh57twoxjym1cmrip676409nxmdwhk.jpg" },
+  { name: "Catesby Trillium", sci: "Trillium catesbaei", desc: "Spring ephemeral growing in humusy, well-drained soil in light to deep shade; flowers point down or sideways.", photo: "https://gnps.org/wp-content/uploads/bfi_thumb/trillium_catesbaei_04-16-03-qx0g3w9zf6oumc2g5329w5aw5g158xc5l0ewbswv66.jpg" },
+  { name: "Chalk Maple", sci: "Acer leucoderme", desc: "Tolerates sun to shade with moist to moderately dry soil; recognizable in winter by retained leaves.", photo: "https://gnps.org/wp-content/uploads/bfi_thumb/acer_leucoderme_11_02_14-qx0fi4cl3cvpnjp5ao7f4n4gq3d0xcw0l8by3177ue.jpg" },
+  { name: "Christmas Fern", sci: "Polystichum acrostichoides", desc: "Drought tolerant, evergreen fern suitable for various conditions.", photo: "https://gnps.org/wp-content/uploads/bfi_thumb/2008_Polystichum_acrostichoides_01-qx0frjobmjs82s0998vqmrhv66wj43b47vu8bx83hk.jpg" },
+  { name: "Cinnamon Fern", sci: "Osmunda cinnamomea", desc: "Long-lived perennial that thrives in partial shade with moist, humus-rich acid soil.", photo: "https://gnps.org/wp-content/uploads/bfi_thumb/osmunda_cinnamomea_05-02-06-qx0fjx7g6xchwn2xry8oeor9pohcoh1hu5cg74j22m.jpg" },
+  { name: "Coral Bells", sci: "Heuchera americana", desc: "Grows in part to full shade with acid, rocky soil; forms ground cover over time.", photo: "https://gnps.org/wp-content/uploads/bfi_thumb/Heuchera-americana-qx0fprraptcq5al3mh93x7mirznkko9db3h7p3uv20.jpg" },
+  { name: "Coral Honeysuckle", sci: "Lonicera sempervirens", desc: "Twining vine with blooms for full sun; great for arbors, with semi-evergreen leaves.", photo: "https://gnps.org/wp-content/uploads/bfi_thumb/Lonicera-sempervirens-2262a-qx0fzwgodj7z9zvcguwcsnld9hpzj8h818llwgu3zs.jpg" },
+  { name: "Cranefly Orchid", sci: "Tipularia discolor", desc: "Found throughout Georgia in partial to full shade; prefers humus-rich damp soil.", photo: "https://gnps.org/wp-content/uploads/bfi_thumb/tipularia_discolor_01-04-04-qx0fjlxdwwx21bjbltd5krlql20y43spslimfszsa0.jpg" },
+  { name: "Crossvine", sci: "Bignonia capreolata", desc: "Partial shade to full sun vine; showy blooms attract hummingbirds, with semi-evergreen leaves.", photo: "https://gnps.org/wp-content/uploads/bfi_thumb/Bignonia-capreolata_05_17_13-qx0fjj3vcet72hnf2a59vabcsweuh0his7k5zz3ygq.jpg" },
+  { name: "Dimpled Trout Lily", sci: "Erythronium umbilicatum", desc: "Spring ephemeral preferring shade to partial shade in hardwood forest settings.", photo: "https://gnps.org/wp-content/uploads/bfi_thumb/Erythronium-umbilicatum-qx0frznkuqe3k5d1nxseb5gp9qprqy2jy2xhhmkdvm.jpg" },
+  { name: "Downy Lobelia", sci: "Lobelia puberula", desc: "Summer-blooming perennial growing in sun to partial shade with consistent moisture.", photo: "https://gnps.org/wp-content/uploads/bfi_thumb/Lobelia-puberula-09-01-14-qx0ftkzqfmkl8d1rd4kn18zti8v5she6hyq3ri7g4m.jpg" },
+  { name: "Downy Rattlesnake Plantain", sci: "Goodyera pubescens", desc: "Evergreen orchid suitable as ground cover; does well in shade to partial shade.", photo: "https://gnps.org/wp-content/uploads/bfi_thumb/goodyera_pubescens_05-02-06_02-qx0g5p4uir5mvfg8md3j66xp515h01hmtxfefw8pqm.jpg" },
+  { name: "Downy Serviceberry", sci: "Amelanchier arborea", desc: "Small tree producing edible berries; performs better with increased sunlight for flowering.", photo: "https://gnps.org/wp-content/uploads/bfi_thumb/amelanchier_arborea_03-23-03-qx0g4bbegj9fs3glp9kb01i9nlz0o2zuz2uo08akbk.jpg" },
+  { name: "Dutchman's Breeches", sci: "Dicentra cucullaria", desc: "Spring ephemeral with bulb-like corm; has narcotic and occasionally lethal effects on grazing cattle.", photo: "https://gnps.org/wp-content/uploads/bfi_thumb/Dicentra-cucullaria-146a-1-qx0fr3p2ed6clengujz2ydj12n3ah8johoqz67vs1q.jpeg" },
+  { name: "Dwarf Pawpaw", sci: "Asimina parviflora", desc: "Partial shade to sun shrub requiring moist soil; larval food plant of the zebra swallowtail butterfly.", photo: "https://gnps.org/wp-content/uploads/bfi_thumb/asimina_parviflora_04-11-03-qx0g5p4uir5mvfg8md3j66xp515h01hmtxfefw8ogi.jpg" },
+  { name: "Ebony Spleenwort", sci: "Asplenium platyneuron", desc: "Lacy, evergreen fern offering year-round interest in partial shade to sun with variable soil tolerance.", photo: "https://gnps.org/wp-content/uploads/bfi_thumb/asplenium_platyneuron_08-03-05-qx0fwm10gepun4ndofpd2hhaexxqldf1kyefflpr7q.jpg" },
+  { name: "Field Goldenrod", sci: "Solidago canadensis", desc: "Aggressive rhizomatous perennial with high wildlife value; suited for larger spaces rather than gardens.", photo: "https://gnps.org/wp-content/uploads/bfi_thumb/solidago-canadensis-10_19_12-qx0fwqq7ekwa96gjwzqhwyaldvaknuxp9lnutziqwe.jpg" },
+  { name: "Fire Pink", sci: "Silene virginica", desc: "Perennial thriving in full sun to part shade; needs excellent drainage.", photo: "https://gnps.org/wp-content/uploads/bfi_thumb/Silene-virginica-05-05-12-qx0g8uvbhphbw8v1689e1w8h0nkvvf15lkd5idk4gm.jpg" },
+  { name: "Fly Poison", sci: "Amianthium muscitoxicum", desc: "Shade-loving perennial with long-lasting flower clusters; the bulb is the most toxic part.", photo: "https://gnps.org/wp-content/uploads/bfi_thumb/amianthium_muscaetoxicum_06-05-05-qx0fsn5jlla9meewupy2jhj84dhy3dnudb8mhjlkwo.jpg" },
+  { name: "Foam Flower", sci: "Tiarella cordifolia", desc: "Partial to full shade groundcover; prefers moist humusy soil and produces a nice show of flowering stalks.", photo: "https://gnps.org/wp-content/uploads/bfi_thumb/tiarella_cordifolia_02-15-05-qx0fx7natljg25rz671s5u0w2sz6iesvbxelgytnmu.jpg" },
+  { name: "Galax", sci: "Galax urceolata", desc: "Shade-loving perennial featuring evergreen leaves with a distinctive shape and mottled patterns.", photo: "https://gnps.org/wp-content/uploads/bfi_thumb/galax_urceolata_06-18-05-qx0fovss9g4z6jvit3fskfoukw13ayqhupapdp69bg.jpg" },
+  { name: "Georgia Aster", sci: "Symphyotrichum georgianum", desc: "Fall-blooming perennial suited for sunny locations.", photo: "https://gnps.org/wp-content/uploads/bfi_thumb/2015_Symphyotrichum_georgianum_01-qx0fuhw32ttmippz10skyioyaqd09w0sahk3k6ulka.jpg" },
+  { name: "Gray Goldenrod", sci: "Solidago nemoralis", desc: "A garden-worthy goldenrod with a clumping nature; non-aggressive, supports pollinators and wildlife.", photo: "https://gnps.org/wp-content/uploads/bfi_thumb/solidago-nemoralis-09_10_14-qx0fvtturdn8ytsc93ijzolgldsq6gb3h2tv1avip0.jpg" },
+  { name: "Hairy Skullcap", sci: "Scutellaria elliptica", desc: "Sun-tolerant perennial requiring average well-drained soil; no minty scent despite being in the mint family.", photo: "https://gnps.org/wp-content/uploads/bfi_thumb/scutellaria_elliptica_05-28-03_04-qx0frc5m3vhxhwb6h5mq2te6f3xleih9iumchpj9fm.jpg" },
+  { name: "Heartleaf Ginger", sci: "Hexastylis arifolia", desc: "Evergreen groundcover with an intricate, mottled pattern of silver or cream decorating the foliage.", photo: "https://gnps.org/wp-content/uploads/bfi_thumb/hexastylis_arifolia_08-03-05_02-qx0fnjv0kwbcqft5l0ptj9sca8ldeeg6o40xwl5bte.jpg" },
+  { name: "Indian Pink", sci: "Spigelia marilandica", desc: "Shade-loving perennial attracting hummingbirds; clump-forming with a prolonged flowering season.", photo: "https://gnps.org/wp-content/uploads/bfi_thumb/Spigelia-marilandica-06_07_14-qx0fowqmga69i5u5nluf4xgb69wginu86ty6uz4vik.jpg" },
+  { name: "Indiangrass", sci: "Sorghastrum nutans", desc: "Native ornamental grass species.", photo: "https://gnps.org/wp-content/uploads/bfi_thumb/Sorghastrum-nutans-Indian-Grass-natural-qx0fuwxi46e7oh44l7am2ewbswavp1ohojzv8m8aqs.jpg" },
+  { name: "Ironweed", sci: "Vernonia gigantea", desc: "Summer-blooming perennial tolerating wet conditions; easily cultivated in average soils.", photo: "https://gnps.org/wp-content/uploads/bfi_thumb/vernonia_gigantea_08-15-04_02-qx0fprraptcq5al3mh93x7mirznkko9db3h7p3uvgq.jpg" },
+  { name: "Jack in the Pulpit", sci: "Arisaema triphyllum", desc: "Incorporate large amounts of humus into the planting bed; thrives with plenty of moisture. One of the most loved wildflowers.", photo: "https://gnps.org/wp-content/uploads/bfi_thumb/arisaema_triphyllum_05-03-04-qx0flrxzo5vusydzy936tpwzw1ceuzefrbnx9rs4de.jpg" },
+  { name: "Jewelweed", sci: "Impatiens capensis", desc: "Annual plant that attracts hummingbirds; the pale jewelweed variant prefers limestone sites.", photo: "https://gnps.org/wp-content/uploads/bfi_thumb/impatiens-capensis-090a-scaled-qx0fxsbqzybr5kxxtfzkoot15a597r2yqrra11z0do.jpg" },
+  { name: "Joe Pye", sci: "Eutrochium fistulosum", desc: "Perennial that needs plenty of space and water; add organic material to clay or sand. Attracts butterflies.", photo: "https://gnps.org/wp-content/uploads/bfi_thumb/eupatorium_fistulosum_08-07-04-qx0g42uur0xuvlsw2nwnvln4b54pqt29xwzaoqn4n2.jpg" },
+  { name: "Lady Fern", sci: "Athyrium filix-femina", desc: "Partial to full shade; rich, moist to wet well-drained soil, but it adapts well to garden conditions.", photo: "https://gnps.org/wp-content/uploads/bfi_thumb/athyrium_filix-femina_05-02-06-qx0g1pbjh3orj394y4xm2p8692ubacmpa5m40k5yeo.jpg" },
+  { name: "Lanceleaf Trillium", sci: "Trillium lancifolium", desc: "Spring ephemeral perennial with a relatively small form and narrow leaves.", photo: "https://gnps.org/wp-content/uploads/bfi_thumb/Trillium-lancifolium-04_06_13-qx0fm9sxa0kaxjo21yt3n3er6cwdx8dc5s25e11mri.jpg" },
+  { name: "Maidenhair Fern", sci: "Adiantum pedatum", desc: "Tolerates mild drought and spreads via rhizomes. Finely textured fronds provide visual appeal.", photo: "https://gnps.org/wp-content/uploads/bfi_thumb/adiantum_pedatum_03-20-06-qx0g031jpdgzj9lsefqqs3xlf6tk147ce5609ekfye.jpg" },
+  { name: "Mapleleaf Viburnum", sci: "Viburnum acerifolium", desc: "Shade-tolerant shrub producing berries.", photo: "https://gnps.org/wp-content/uploads/bfi_thumb/Viburnum-acerifolium-flower-010-crop-qx0fr1te0p3ry6q75j5tte03vvck1uc7tfg07nyl04.jpg" },
+  { name: "Mayapple", sci: "Podophyllum peltatum", desc: "Spring ephemeral groundcover that will form a colony over time via underground rhizomes.", photo: "https://gnps.org/wp-content/uploads/bfi_thumb/podophyllum_peltatum_04-20-04-qx0g4e4x11daqxci8ss6pisnfrl4b6b1zgt4g26dtq.jpg" },
+  { name: "Mouse-ear Coreopsis", sci: "Coreopsis auriculata", desc: "Perennial groundcover with showy flowers and evergreen foliage.", photo: "https://gnps.org/wp-content/uploads/bfi_thumb/coreopsis_auriculata_05-01-03-qx0g3w9zf6oumc2g5329w5aw5g158xc5l0ewbswwag.jpg" },
+  { name: "Oakleaf Hydrangea", sci: "Hydrangea quercifolia", desc: "Shrub featuring multi-season interest with creamy summer flowers that turn pinkish.", photo: "https://gnps.org/wp-content/uploads/bfi_thumb/Hydrangea-quercifolia-003-qx0fso3dsfbjy0djp8cp3zaoprdbb2rkpfw3ytk5sk.jpg" },
+  { name: "Painted Buckeye", sci: "Aesculus sylvatica", desc: "Large showy flowers; makes an excellent naturalizing plant; nectar source for hummingbirds.", photo: "https://gnps.org/wp-content/uploads/bfi_thumb/aesculus_sylvatica_06-05-05-qx0fp9wd3yoa0pb1irj73u4rho3lifagwn2zkulclo.jpg" },
+  { name: "Partridgeberry", sci: "Mitchella repens", desc: "Evergreen groundcover producing berries that stay on the plant until the next flowering season.", photo: "https://gnps.org/wp-content/uploads/bfi_thumb/Mitchella-repens-08-24-12-qx0fomeed3s3yg96bzdivi28n1bf5zp6herukxk6ns.jpg" },
+  { name: "Pawpaw", sci: "Asimina triloba", desc: "Edible tree that often spreads by root suckers to form thickets in its natural habitat.", photo: "https://gnps.org/wp-content/uploads/bfi_thumb/asimina-triloba_04_05_09-qx0fvuroy7ojafqz3lx6k6cx6ro3e5ett7hciku4s8.jpg" },
+  { name: "Piedmont Azalea", sci: "Rhododendron canescens", desc: "Fragrant shrub that grows in partial shade to full sun; requires acid soil, with early spring blooms.", photo: "https://gnps.org/wp-content/uploads/bfi_thumb/rhododendron_canescens_02-15-05_01-qx0fxnmk1s5bjj4rkvyfu7zq6csf59kb24humo5ysy.jpg" },
+  { name: "Pink Ladyslipper", sci: "Cypripedium acaule", desc: "Orchid perennial preferring shade to partial shade; moist, rich, acidic soil.", photo: "https://gnps.org/wp-content/uploads/bfi_thumb/cypripedium_acaule_04-21-04-qx0fpbs1hmqunx8b7scg8tnoofubxthxkwdyjeilec.jpg" },
+  { name: "Rattlesnake Fern", sci: "Botrychium virginianum", desc: "Shade preferred, as it soon dies out in sunny locations; needs moist, rich, acidic soil.", photo: "https://gnps.org/wp-content/uploads/bfi_thumb/botrychium_virginianum_08-03-05-qx0fuhw32ttmippz10skyioyaqd09w0sahk3k6umcw.jpg" },
+  { name: "Red Buckeye", sci: "Aesculus pavia", desc: "Tree featuring large showy flowers that serve as a nectar source for hummingbirds.", photo: "https://gnps.org/wp-content/uploads/bfi_thumb/Aesculus-pavia-2041a-qx0fwaqy6eaert3riatu8kbrabhc1069jekloa6gza.jpg" },
+  { name: "Red Maple", sci: "Acer rubrum", desc: "Deciduous tree with nice fall color and somewhat showy late winter blooms.", photo: "https://gnps.org/wp-content/uploads/bfi_thumb/acer_rubrum_04-27-05-qx0fuwxi46e7oh44l7am2ewbswavp1ohojzv8m8ahc.jpg" },
+  { name: "Redbud", sci: "Cercis canadensis", desc: "Tree thriving in sun to part sun; dry to moist soil, but cannot tolerate soggy soil.", photo: "https://gnps.org/wp-content/uploads/bfi_thumb/cercis_canadensis_03_21_14-qx0g6nwvjmh8t01pza4q8g5r4ae1wubpapkd74t6fu.jpg" },
+  { name: "Round-lobe Hepatica", sci: "Hepatica nobilis var. obtusa", desc: "Early wildflower with evergreen foliage that provides winter interest in partial shade.", photo: "https://gnps.org/wp-content/uploads/bfi_thumb/hepatica_americana_01-12-05_01-qx0g5p4uir5mvfg8md3j66xp515h01hmtxfefw8pia.jpg" },
+  { name: "Royal Fern", sci: "Osmunda regalis", desc: "Feathery appearance provides good texture accent in moist, acidic conditions.", photo: "https://gnps.org/wp-content/uploads/bfi_thumb/osmunda_regalis_03-20-06_01-qx0fyc2czh2rxe59m6iqn1tpmdfype9bthgh3v5rgu.jpg" },
+  { name: "Rue Anemone", sci: "Thalictrum thalictroides", desc: "Spring perennial; a good plant for the spring wildflower or rock garden.", photo: "https://gnps.org/wp-content/uploads/bfi_thumb/thalictrum-thalictroides-03_21_14-qx0g8oag5v8bmz4l8nf02fw8uyhbdjb18nsr5fttx4.jpg" },
+  { name: "Sassafras", sci: "Sassafras albidum", desc: "Tree functioning as a butterfly host plant.", photo: "https://gnps.org/wp-content/uploads/bfi_thumb/Sassafras-albidum-5-qx0ft7tzry2kptkvhyvv2cbd6uo0spxxs5lb1mqw8o.jpg" },
+  { name: "Scarlet Sage", sci: "Salvia coccinea", desc: "Annual herb attracting hummingbirds; described as deer tolerant.", photo: "https://gnps.org/wp-content/uploads/bfi_thumb/Salvia-coccinea-qx0foxogn47jtrssi491pf7rrnrtqcxyiyloc93gl4.jpg" },
+  { name: "Shuttleworth Ginger", sci: "Hexastylis shuttleworthii", desc: "Evergreen groundcover that will spread slowly by rhizomes to form large colonies.", photo: "https://gnps.org/wp-content/uploads/bfi_thumb/Hexastylis-shuttleworthii-04-25-11-qx0g75rt5h5oxlbs2zun1tniely0z3alp5ylbe2ny0.jpg" },
+  { name: "Slender Goldenrod", sci: "Solidago erecta", desc: "Fall-blooming perennial that pairs well with other fall blooming flowers and native grasses.", photo: "https://gnps.org/wp-content/uploads/bfi_thumb/Solidago-erecta-28332a-qx0fulnfu5yrt5kif2f38hqso9uh4ofpn061hap3dy.jpg" },
+  { name: "Smooth Phlox", sci: "Phlox glaberrima", desc: "Summer perennial that blooms for 2 months between May and July with fragrant flowers.", photo: "https://gnps.org/wp-content/uploads/bfi_thumb/phlox_glaberrima_06-04-06-qx0g6469k3q816ue6jlka352n73cf75c7zv64bmeuw.jpg" },
+  { name: "Soapwort Gentian", sci: "Gentiana saponaria", desc: "Clusters of vivid blue to purple flowers provide fall interest in partial shade to full sun with moist acid soil.", photo: "https://gnps.org/wp-content/uploads/bfi_thumb/gentiana_saponaria_12-12-05-qx0g8ew29ivgevi8rjcqdi9mx3rn8k9pvd9wco7s3g.jpg" },
+  { name: "Solomon's Plume", sci: "Maianthemum racemosum", desc: "Partial shade perennial with fragrant blooms that serve as a nectar source for bumblebees; spreads via rhizomes.", photo: "https://gnps.org/wp-content/uploads/bfi_thumb/Maianthemum-racemosum-04-24-11-qx0g4e4x11daqxci8ss6pisnfrl4b6b1zgt4g26e9k.jpg" },
+  { name: "Solomon's Seal", sci: "Polygonatum biflorum", desc: "Shade-loving perennial with a graceful arching leafy stem that spreads slowly by rhizomes in humusy soils.", photo: "https://gnps.org/wp-content/uploads/bfi_thumb/Polygonatum-biflorum-04-26-11-qx0fl6bpaz29dx9eghqrqdde86ayxy0m0cnr8eo5h4.jpg" },
+  { name: "Sourwood", sci: "Oxydendrum arboreum", desc: "Tree preferring moist, acidic soil; genus name comes from the Greek oxys (sour) and dendron (tree).", photo: "https://gnps.org/wp-content/uploads/bfi_thumb/oxydendrum_arboreum_06-18-05_01-qx0fk00yrfgcvgyubhgk461nhu3gbkcoujawmyev80.jpg" },
+  { name: "Southern Grape Fern", sci: "Botrychium biternatum", desc: "Fern sending up new fronds in fall that die back in spring, unlike the similar rattlesnake fern species.", photo: "https://gnps.org/wp-content/uploads/bfi_thumb/botrychium_biternatum_09-09-06-qx0g7x14no70aa86ntmtk4rvms7o6batgwvo8eybfu.jpg" },
+  { name: "Southern Magnolia", sci: "Magnolia grandiflora", desc: "Fast-growing evergreen tree with fragrant flowers; has become invasive in Piedmont woodlands via bird dispersal.", photo: "https://gnps.org/wp-content/uploads/bfi_thumb/magnolia-grandiflora-10-29-14-qx0fjj3vcet72hnf2a59vabcsweuh0his7k5zz3y3o.jpg" },
+  { name: "Southern Mountainmint", sci: "Pycnanthemum pycnanthemoides", desc: "Aromatic perennial thriving in sun to part shade with average to dry soil; supports bees and butterflies.", photo: "https://gnps.org/wp-content/uploads/bfi_thumb/Pycnanthemum-pycnanthemoides-butterfly-qx0g7jvdzzozrqrasny1l83fbe0j6jukr3qvijhsd2.jpg" },
+  { name: "Southern Nodding Trillium", sci: "Trillium rugelii", desc: "Spring ephemeral perennial preferring shade with moist, well-drained soil; can be bare-root transplanted carefully.", photo: "https://gnps.org/wp-content/uploads/bfi_thumb/trillium_rugelii_05-02-06_02-qx0g2uoftt9dpxl28mt74esge16gp16w3ubh4qgmv4.jpg" },
+  { name: "Spotted Geranium", sci: "Geranium maculatum", desc: "Spring-blooming perennial thriving in humus-rich, moist soil; leaves turn yellow if summer soil becomes dry.", photo: "https://gnps.org/wp-content/uploads/bfi_thumb/geranium_maculatum_05-02-06_02-qx0fz3boho43a31o70ax5cy2ujplwm9jl8dk0w1bd8.jpg" },
+  { name: "Swamp Milkweed", sci: "Asclepias incarnata", desc: "Showy flowers attract both butterflies and hummingbirds; a monarch caterpillar host plant.", photo: "https://gnps.org/wp-content/uploads/bfi_thumb/Asclepias-incarnata_07_20_13-qx0fpfje8yvzyd2ultyyispj1zbsslwuxezwgiczaw.jpg" },
+  { name: "Sweetbay Magnolia", sci: "Magnolia virginiana", desc: "Semi-evergreen tree ideal for patios; leaves shimmer due to the whitish-green undersides of the leaves.", photo: "https://gnps.org/wp-content/uploads/bfi_thumb/magnolia-virginiana-05-10-14-qx0fr6ikyva7k8jde36ynuteuspe4buvi2pfm1rlq0.jpg" },
+  { name: "Sweetshrub", sci: "Calycanthus floridus", desc: "Shade-tolerant shrub with fragrant flowers, forms colonies via suckers; prefers 5-6 hours of sun in moist, rich soil.", photo: "https://gnps.org/wp-content/uploads/bfi_thumb/calycanthus-floridus_04_06_14-qx0fu4qcf5bm06935v3szm0hzc5va4kjkofaube46w.jpg" },
+  { name: "Toadshade Trillium", sci: "Trillium cuneatum", desc: "Spring ephemeral in moist shade with humusy soil; tolerates dry summer dormancy once established.", photo: "https://gnps.org/wp-content/uploads/bfi_thumb/trillium_cuneatum_04-03-04-qx0g4e4x11daqxci8ss6pisnfrl4b6b1zgt4g26e5e.jpg" },
+  { name: "Two-leaved Toothwort", sci: "Cardamine diphylla", desc: "Spring ephemeral appreciating moist soil; propagates by tuber division and self-seeding; member of the mustard family.", photo: "https://gnps.org/wp-content/uploads/bfi_thumb/Cardamine-diphylla-04_26_15-qx0fi1j2iuruopt8r4zjf5u2xxqxa9ktkudhn7be4g.jpg" },
+  { name: "Umbrella Magnolia", sci: "Magnolia tripetala", desc: "Large-leaved deciduous tree; partial to deep shade; avoid planting close to where people congregate due to the flower's scent, which some say is objectionable.", photo: "https://gnps.org/wp-content/uploads/bfi_thumb/Magnolia-tripetala2-04-27-14-qx0ftj421yi0l54ho3rdw9gwbh4fd36ptpf4sya660.jpg" },
+  { name: "Virginia Sweetspire", sci: "Itea virginica", desc: "Shrub with erosion control and autumn color properties.", photo: "https://gnps.org/wp-content/uploads/bfi_thumb/Itea-virginica-2211a-qx0fyp83n5ksfxm5hc7ilyi5xrn3p5pkjal9tqm8nk.jpg" },
+  { name: "Wax Myrtle", sci: "Morella cerifera", desc: "Berry-producing shrub; dioecious; attracts warblers.", photo: "https://gnps.org/wp-content/uploads/bfi_thumb/Morella-cerifera-272a-qx0ft7tzry2kptkvhyvv2cbd6uo0spxxs5lb1mqw8o.jpg" },
+  { name: "White Milkweed", sci: "Asclepias variegata", desc: "Perennial; monarch host plant; has thick, white sap which can be irritating to some people and is toxic if ingested.", photo: "https://gnps.org/wp-content/uploads/bfi_thumb/asclepias_variegata_05-27-06_02-qx0fzspbm72tzk0t2t9uiojivy8iog2aopznzczoee.jpg" },
+  { name: "White Oak", sci: "Quercus alba", desc: "Tree; butterfly host plant.", photo: "https://gnps.org/wp-content/uploads/bfi_thumb/Quercus-alba-010-qx0g0jyn4e45c8x7nn210znw44i5vo2iggwqwdv9o8.jpg" },
+  { name: "White Turtlehead", sci: "Chelone glabra", desc: "Perennial; bee plant; host plant for the Baltimore Checkerspot butterfly.", photo: "https://gnps.org/wp-content/uploads/bfi_thumb/Chelone-glabra-bee-qx0fs68g6kn3tf3hlimsalsxfftc8tsoazhvukan5k.jpg" },
+  { name: "Whorled Coreopsis", sci: "Coreopsis major", desc: "Perennial; pollinator plant; thrives in dry to average soil.", photo: "https://gnps.org/wp-content/uploads/bfi_thumb/Coreopsis-major-07_04_14-qx0g4xvj0k4biqju1jbcnvtbwuvtsthf26ibivd4dg.jpg" },
+  { name: "Winterberry", sci: "Ilex verticillata", desc: "Deciduous shrub; dioecious holly; tolerates poor drainage and wet areas.", photo: "https://gnps.org/wp-content/uploads/bfi_thumb/Ilex-verticillata-09-21-12-qx0g1pbjh3orj394y4xm2p8692ubacmpa5m40k5yzi.jpg" },
+  { name: "Wrinkle-leaf Goldenrod", sci: "Solidago rugosa", desc: "Perennial; bee and butterfly plant; spreading growth habit.", photo: "https://gnps.org/wp-content/uploads/bfi_thumb/solidago-rugosa-fireworks-08_30_13-qx0fyymhjhxno18hyg9saw4rvmcru4qvwl44mi8cfi.jpg" },
+  { name: "Yellow Trillium", sci: "Trillium luteum", desc: "Spring ephemeral perennial with a pleasant lemony fragrance.", photo: "https://gnps.org/wp-content/uploads/bfi_thumb/Trillium-luteum-03_18_12-qx0fmtjj9jbbpcvdupc9lgffng73evjp8hrcgu8cl4.jpg" },
+  { name: "Yellowroot", sci: "Xanthorhiza simplicissima", desc: "Shrub; spreads via suckers; used for erosion control on streambanks.", photo: "https://gnps.org/wp-content/uploads/bfi_thumb/xanthorhiza_simplicissima_04-27-05-qx0frhsn8vpnfk2zk82hhryxzf5sop3njmj9ddavdw.jpg" }
 ];
 
 const btn = document.getElementById("generate");
+const placeholder = document.getElementById("plant-placeholder");
 const card = document.getElementById("plant-card");
 const photo = document.getElementById("plant-photo");
 const nameEl = document.getElementById("plant-name");
@@ -101,6 +111,7 @@ function showRandomPlant() {
   nameEl.textContent = plant.name;
   sciEl.textContent = plant.sci;
   descEl.textContent = plant.desc;
+  placeholder.hidden = true;
   card.hidden = false;
 }
 

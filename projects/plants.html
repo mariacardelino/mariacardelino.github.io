@@ -21,29 +21,34 @@
 
 <main class="wrap">
   <section>
-    <p style="color:var(--ink-dim); margin-bottom:1em">
-      Georgia Native Plant Random Generator. Click the button for a random
-      native plant, pulled from the Georgia Native Plant Society's
-      <a href="https://gnps.org/georgias-native-plants/search-native-plants/" target="_blank" rel="noopener noreferrer">plant database</a>.
-    </p>
-    <p style="color:var(--ink-dim)">
-      All names, descriptions, and photos are sourced from and © the
-      <a href="https://gnps.org/" target="_blank" rel="noopener noreferrer">Georgia Native Plant Society</a> (gnps.org).
-    </p>
-  </section>
+    <div class="plant-layout">
+      <div class="plant-left">
+        <p style="color:var(--ink-dim); margin-bottom:1.2em">
+          Click the button for a random Georgia native plant, pulled from the
+          Georgia Native Plant Society's
+          <a href="https://gnps.org/georgias-native-plants/search-native-plants/" target="_blank" rel="noopener noreferrer">plant database</a>.
+        </p>
+        <button class="go" id="generate">Georgia Native Plant Random Generator</button>
+        <p style="color:var(--ink-dim); font-size:.8rem; margin-top:1.2em">
+          All names, descriptions, and photos are sourced from and © the
+          <a href="https://gnps.org/" target="_blank" rel="noopener noreferrer">Georgia Native Plant Society</a> (gnps.org).
+        </p>
+      </div>
 
-  <section>
-    <button class="go" id="generate">Georgia Native Plant Random Generator</button>
+      <div class="plant-right">
+        <p class="plant-placeholder" id="plant-placeholder">Your random plant will appear here.</p>
 
-    <div class="plant-card" id="plant-card" hidden>
-      <figure>
-        <img id="plant-photo" src="" alt="">
-        <figcaption>Photo &amp; description: <a href="https://gnps.org/georgias-native-plants/search-native-plants/" target="_blank" rel="noopener noreferrer">Georgia Native Plant Society</a></figcaption>
-      </figure>
-      <div class="plant-body">
-        <h3 id="plant-name"></h3>
-        <p class="plant-sci" id="plant-sci"></p>
-        <p class="plant-desc" id="plant-desc"></p>
+        <div class="plant-card" id="plant-card" hidden>
+          <figure>
+            <img id="plant-photo" src="" alt="">
+            <figcaption>Photo &amp; description: <a href="https://gnps.org/georgias-native-plants/search-native-plants/" target="_blank" rel="noopener noreferrer">Georgia Native Plant Society</a></figcaption>
+          </figure>
+          <div class="plant-body">
+            <h3 id="plant-name"></h3>
+            <p class="plant-sci" id="plant-sci"></p>
+            <p class="plant-desc" id="plant-desc"></p>
+          </div>
+        </div>
       </div>
     </div>
   </section>
