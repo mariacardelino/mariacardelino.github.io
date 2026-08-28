@@ -1,0 +1,5 @@
+# full-resolution photo originals — only the compressed images/thumbs/ versions are served
+images/*.jpg
+images/*.JPG
+images/*.jpeg
+images/*.JPEG
