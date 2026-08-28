@@ -43,11 +43,12 @@ function render(rule) {
   row[(CELLS - 1) >> 1] = 1;
 
   const cs = getComputedStyle(document.documentElement);
-  const live = cs.getPropertyValue('--live').trim() || '#5ee6c4';
+  const accent = cs.getPropertyValue('--accent').trim() || '#8a5a44';
+  const surface = cs.getPropertyValue('--surface').trim() || '#fffdf8';
 
-  ctx.fillStyle = '#000';
+  ctx.fillStyle = surface;
   ctx.fillRect(0, 0, canvas.width, canvas.height);
-  ctx.fillStyle = live;
+  ctx.fillStyle = accent;
 
   for (let g = 0; g < GENS; g++) {
     for (let x = 0; x < CELLS; x++) {
