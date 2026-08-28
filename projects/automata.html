@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>cellular automata · playground</title>
+<title>cellular automata · mecarde</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,400;0,600;1,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../css/style.css">
@@ -11,7 +11,7 @@
 <body>
 <header>
   <div class="wrap bar">
-    <a href="../index.html" class="brand">playground</a>
+    <a href="../index.html" class="brand">mecarde</a>
     <nav>
       <a href="../index.html">home</a>
       <a href="../projects.html">projects</a>
@@ -21,14 +21,32 @@
 
 <main class="wrap">
   <section>
+    <p style="color:var(--ink-dim);max-width:60ch">
+      This is an extremely simple tool. Below is a grid of cells, 120 rows tall.
+      At first, all the pixels (or cells) are empty, but we will change that soon.
+      Enter a number 0-255. This number will be translated into an 8-bit map, seen
+      on the right, that tells each cell whether it should be 0 or 1 (white or brown)
+      based on the 3 cells above it. You can choose whether to start the first row
+      with only one brown cell or a random set. Click "go" and see what happens!
+    </p>
+  </section>
+
+  <section>
     <div class="controls">
       <div class="field">
-        <label for="rule">rule</label>
+        <label for="rule">enter a number 0-255</label>
         <input type="number" id="rule" min="0" max="255" value="30" step="1">
       </div>
-      <button class="go" id="go">render</button>
       <div class="field">
-        <label>rule as neighbourhood map</label>
+        <label for="seed">start row</label>
+        <select id="seed">
+          <option value="single" selected>single cell</option>
+          <option value="random">random</option>
+        </select>
+      </div>
+      <button class="go" id="go">go</button>
+      <div class="field">
+        <label>rule as an 8-bit neighborhood map</label>
         <div class="rulebits" id="rulebits"></div>
       </div>
     </div>
@@ -40,15 +58,15 @@
       <span>try:</span>
       <a href="#" data-rule="30">30 chaos</a>
       <a href="#" data-rule="90">90 sierpiński</a>
-      <a href="#" data-rule="110">110 turing-complete</a>
-      <a href="#" data-rule="184">184 traffic</a>
-      <a href="#" data-rule="150">150 xor</a>
+      <a href="#" data-rule="110">110</a>
+      <a href="#" data-rule="184">184</a>
+      <a href="#" data-rule="150">150</a>
       <a href="#" data-rule="54">54</a>
     </div>
   </section>
 </main>
 
-<footer class="wrap">built for fun · hosted on github pages</footer>
+<footer class="wrap">last updated August 2026</footer>
 
 <script src="../js/automata.js"></script>
 </body>

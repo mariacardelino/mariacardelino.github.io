@@ -5,6 +5,7 @@
 const canvas = document.getElementById('ca');
 const ctx    = canvas.getContext('2d');
 const input  = document.getElementById('rule');
+const seedEl = document.getElementById('seed');
 const goBtn  = document.getElementById('go');
 const bitsEl = document.getElementById('rulebits');
 const readEl = document.getElementById('readout');
@@ -38,9 +39,13 @@ function drawBits(rule) {
 function render(rule) {
   const bits = ruleToBits(rule);
 
-  // start: single live cell in the centre
+  // start: single live cell in the centre, or a random scattering
   let row = new Uint8Array(CELLS);
-  row[(CELLS - 1) >> 1] = 1;
+  if (seedEl.value === 'random') {
+    for (let x = 0; x < CELLS; x++) row[x] = Math.random() < 0.5 ? 1 : 0;
+  } else {
+    row[(CELLS - 1) >> 1] = 1;
+  }
 
   const cs = getComputedStyle(document.documentElement);
   const accent = cs.getPropertyValue('--accent').trim() || '#8a5a44';
@@ -81,6 +86,7 @@ function run() {
 
 goBtn.addEventListener('click', run);
 input.addEventListener('keydown', e => { if (e.key === 'Enter') run(); });
+seedEl.addEventListener('change', run);
 
 // preset links (?rule=N or clicking a preset)
 document.querySelectorAll('.presets a').forEach(a =>
