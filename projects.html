@@ -20,53 +20,17 @@
 </header>
 
 <main class="wrap">
-  <section class="hero" style="padding-bottom:20px">
-    <p class="eyebrow">index</p>
-    <h1>Projects</h1>
-    <p>Filter by kind. More get added whenever something catches my attention.</p>
-  </section>
-
-  <section style="padding-top:0">
-    <div class="tabs" role="tablist">
-      <button class="tab active" data-filter="all">all</button>
-      <button class="tab" data-filter="interactive">interactive</button>
-      <button class="tab" data-filter="viz">visualization</button>
-      <button class="tab" data-filter="wip">work in progress</button>
-    </div>
-
+  <section>
     <div class="grid" id="cards">
-      <a class="card" href="projects/automata.html" data-kind="interactive viz">
+      <a class="card" href="projects/automata.html">
         <h3>Elementary Cellular Automata</h3>
         <p>Enter a rule (0–255) and render its evolution as a triangle of cells.</p>
         <span class="tag">interactive</span>
       </a>
-      <!-- duplicate this block for each new project:
-      <a class="card" href="projects/NAME.html" data-kind="viz">
-        <h3>Title</h3><p>One line.</p><span class="tag">visualization</span>
-      </a>
-      -->
-      <div class="card" data-kind="wip" style="cursor:default">
-        <h3>? next thing</h3>
-        <p>Placeholder — swap this out when the next toy is ready.</p>
-        <span class="tag">planned</span>
-      </div>
     </div>
   </section>
 </main>
 
 <footer class="wrap">built for fun · hosted on github pages</footer>
-
-<script>
-  const tabs = document.querySelectorAll('.tab');
-  const cards = document.querySelectorAll('#cards .card');
-  tabs.forEach(t => t.addEventListener('click', () => {
-    tabs.forEach(x => x.classList.remove('active'));
-    t.classList.add('active');
-    const f = t.dataset.filter;
-    cards.forEach(c => {
-      c.hidden = !(f === 'all' || (c.dataset.kind || '').split(' ').includes(f));
-    });
-  }));
-</script>
 </body>
 </html>

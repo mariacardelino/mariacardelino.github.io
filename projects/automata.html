@@ -20,13 +20,7 @@
 </header>
 
 <main class="wrap">
-  <section class="hero" style="padding-bottom:24px">
-    <p class="eyebrow">interactive · rule 0–255</p>
-    <h1>Elementary <span class="live">Cellular Automata</span></h1>
-    <p>Each row is one generation. A cell's next state depends only on itself and its two neighbours — 8 possible neighbourhoods, 8 output bits, and those 8 bits, read as a number, are the rule.</p>
-  </section>
-
-  <section style="padding-top:0">
+  <section>
     <div class="controls">
       <div class="field">
         <label for="rule">rule</label>
@@ -51,17 +45,6 @@
       <a href="#" data-rule="150">150 xor</a>
       <a href="#" data-rule="54">54</a>
     </div>
-  </section>
-
-  <section>
-    <h2 data-n="i">how to read it</h2>
-    <p style="color:var(--ink-dim);max-width:60ch">
-      The top row starts with a single live cell. Read the neighbourhood map above:
-      each 3-digit label is a possible <em>left-self-right</em> pattern, and the box
-      shows whether that pattern turns the middle cell on (1) or off (0) next step.
-      Most rules are dull. A handful — 30, 90, 110 — produce structure that never
-      quite repeats.
-    </p>
   </section>
 </main>
 
