@@ -24,7 +24,7 @@ function ruleToBits(rule) {
 
 function drawBits(rule) {
   const bits = ruleToBits(rule);
-  // show neighbourhoods 111..000 left-to-right (i = 7..0)
+  // show neighborhoods 111..000 left-to-right (i = 7..0)
   bitsEl.innerHTML = '';
   for (let i = 7; i >= 0; i--) {
     const nb = i.toString(2).padStart(3, '0');

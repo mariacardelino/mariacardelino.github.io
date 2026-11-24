@@ -4,3 +4,7 @@ images/*.JPG
 images/*.jpeg
 images/*.JPEG
 .secrets/
+
+# source material for the Tree-dex (kept local, not served)
+Native-Trees-of-GA-2013-Web-Version.pdf
+trees.txt
