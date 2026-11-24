@@ -497,17 +497,41 @@ const TREES = [
     card.append(el("button", { class: "modal-close", type: "button", onclick: closeOverlay }, "×"));
     card.append(el("h3", { class: "modal-title" }, "One-tap publishing"));
     card.append(el("p", { class: "tree-desc", style: "text-align:left;max-width:none;margin-bottom:12px" },
-      "Paste a GitHub fine-grained personal access token with Contents: Read and write on this repo. " +
+      "Create a GitHub fine-grained token with two settings: Repository access → Only select repositories → " +
+      "mariacardelino.github.io, and Repository permissions → Contents → Read and write. Paste it below. " +
       "It is stored only on this device and never leaves it except to talk to GitHub."));
     const input = el("input", { class: "cap-input", type: "password", placeholder: "github_pat_…", value: getToken() });
     const status = el("p", { class: "cap-status" });
     const save = el("button", { class: "go", type: "button", style: "margin-top:12px" }, "Save token");
-    save.addEventListener("click", () => {
+    save.addEventListener("click", async () => {
+      const v = input.value.trim();
       try {
-        const v = input.value.trim();
-        if (v) localStorage.setItem(TOKEN_KEY, v); else localStorage.removeItem(TOKEN_KEY);
-        status.className = "cap-status ok"; status.textContent = "Saved on this device.";
-      } catch { status.className = "cap-status err"; status.textContent = "Couldn’t save (private browsing?)."; }
+        if (!v) { localStorage.removeItem(TOKEN_KEY); status.className = "cap-status"; status.textContent = "Token cleared."; return; }
+        localStorage.setItem(TOKEN_KEY, v);
+      } catch { status.className = "cap-status err"; status.textContent = "Couldn’t save (private browsing?)."; return; }
+
+      if (!/^github_pat_|^ghp_/.test(v)) {
+        status.className = "cap-status err";
+        status.textContent = "That doesn’t look like a token — it should start with “github_pat_”. Copy the token value itself, not its name.";
+        return;
+      }
+      status.className = "cap-status"; status.textContent = "Checking token…";
+      try {
+        const r = await fetch(`https://api.github.com/repos/${OWNER}/${REPO}`, {
+          headers: { Authorization: `Bearer ${v}`, Accept: "application/vnd.github+json" } });
+        if (r.status === 401) { status.className = "cap-status err"; status.textContent = "Bad credentials — the token value is wrong or truncated. Regenerate it and copy the whole string."; return; }
+        if (r.status === 404) { status.className = "cap-status err"; status.textContent = "This token can’t see the repo. In the token’s settings set Repository access → Only select repositories → mariacardelino.github.io."; return; }
+        if (!r.ok) { let m = r.status; try { m = (await r.json()).message || m; } catch {} status.className = "cap-status err"; status.textContent = "GitHub error: " + m; return; }
+        const data = await r.json();
+        if (!data.permissions || !data.permissions.push) {
+          status.className = "cap-status err";
+          status.textContent = "Token is read-only. Give it Repository permissions → Contents: Read and write, then regenerate.";
+          return;
+        }
+        status.className = "cap-status ok"; status.textContent = "Token works ✓ — you can publish now.";
+      } catch (e) {
+        status.className = "cap-status err"; status.textContent = "Couldn’t reach GitHub: " + e.message;
+      }
     });
     const help = el("a", { class: "cap-link", href: "https://github.com/settings/personal-access-tokens/new", target: "_blank", rel: "noopener noreferrer" }, "Create a token on GitHub ↗");
     card.append(field("Token", input), save, status, el("div", { class: "cap-foot" }, help));
