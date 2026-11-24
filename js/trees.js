@@ -521,6 +521,7 @@ const TREES = [
           headers: { Authorization: `Bearer ${v}`, Accept: "application/vnd.github+json" } });
         if (r.status === 401) { status.className = "cap-status err"; status.textContent = "Bad credentials — the token value is wrong or truncated. Regenerate it and copy the whole string."; return; }
         if (r.status === 404) { status.className = "cap-status err"; status.textContent = "This token can’t see the repo. In the token’s settings set Repository access → Only select repositories → mariacardelino.github.io."; return; }
+        if (r.status === 403) { status.className = "cap-status err"; status.textContent = "Token has no permission on this repo. In its settings add BOTH: Repository access → mariacardelino.github.io, and Repository permissions → Contents: Read and write."; return; }
         if (!r.ok) { let m = r.status; try { m = (await r.json()).message || m; } catch {} status.className = "cap-status err"; status.textContent = "GitHub error: " + m; return; }
         const data = await r.json();
         if (!data.permissions || !data.permissions.push) {
