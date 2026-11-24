@@ -332,6 +332,7 @@ const TREES = [
 
   /* ── capture / publish panel ──────────────────────────────── */
   let pendingBlobs = [];
+  let capSlug = "";
 
   function openCapture(preTree) {
     pendingBlobs = [];
@@ -339,18 +340,44 @@ const TREES = [
     card.append(el("button", { class: "modal-close", type: "button", "aria-label": "Close", onclick: closeOverlay }, "×"));
     card.append(el("h3", { class: "modal-title" }, "Add a sighting"));
 
-    // tree picker (grouped)
-    const sel = el("select", { class: "cap-input", id: "cap-tree" });
-    sel.append(el("option", { value: "" }, "— choose a tree —"));
-    for (const fam of FAMILIES) {
-      const og = el("optgroup", { label: fam });
-      for (const t of TREES.filter(x => x.family === fam))
-        og.append(el("option", { value: t.slug, ...(preTree && preTree.slug === t.slug ? { selected: "" } : {}) }, t.name));
-      sel.append(og);
-    }
+    // tree picker — searchable, grouped by family
+    capSlug = preTree ? preTree.slug : "";
+    const search = el("input", { class: "cap-input", id: "cap-search", type: "text",
+      autocomplete: "off", placeholder: "Search or pick a tree…",
+      ...(preTree ? { value: preTree.name } : {}) });
+    const results = el("div", { class: "cap-picker-results", id: "cap-results" });
 
-    // photo input (camera on phone; multiple photos allowed)
-    const fileInput = el("input", { class: "cap-input", id: "cap-file", type: "file", accept: "image/*", capture: "environment", multiple: "" });
+    function renderResults() {
+      const q = search.value.trim().toLowerCase();
+      // if the text exactly matches the chosen tree, show the full list (browse)
+      const chosen = BY_SLUG[capSlug];
+      const browse = !q || (chosen && q === chosen.name.toLowerCase());
+      results.innerHTML = "";
+      let any = false;
+      for (const fam of FAMILIES) {
+        const items = TREES.filter(t => t.family === fam && (browse ||
+          t.name.toLowerCase().includes(q) ||
+          fam.toLowerCase().includes(q) ||
+          (t.botFamily && t.botFamily.toLowerCase().includes(q)) ||
+          (t.sci && t.sci.toLowerCase().includes(q))));
+        if (!items.length) continue;
+        any = true;
+        results.append(el("div", { class: "cap-pick-group" }, fam));
+        for (const t of items) {
+          results.append(el("button", {
+            class: "cap-pick-item" + (t.slug === capSlug ? " active" : ""),
+            type: "button",
+            onclick: () => { capSlug = t.slug; search.value = t.name; results.innerHTML = ""; },
+          }, t.name, el("span", { class: "fam" }, t.botFamily || "")));
+        }
+      }
+      if (!any) results.append(el("div", { class: "cap-pick-none" }, "No match"));
+    }
+    search.addEventListener("focus", renderResults);
+    search.addEventListener("input", () => { capSlug = ""; renderResults(); });
+
+    // photos — take a new photo OR choose from the library (no `capture`), multiple allowed
+    const fileInput = el("input", { class: "cap-input", id: "cap-file", type: "file", accept: "image/*", multiple: "" });
     const preview = el("div", { class: "cap-preview", id: "cap-preview" });
     fileInput.addEventListener("change", async () => {
       const files = Array.from(fileInput.files || []);
@@ -376,13 +403,13 @@ const TREES = [
 
     const status = el("p", { class: "cap-status", id: "cap-status" });
     const submit = el("button", { class: "go", type: "button" }, "Publish to site");
-    submit.addEventListener("click", () => doPublish({ sel, dateInput, placeInput, notesInput, status, submit }));
+    submit.addEventListener("click", () => doPublish({ dateInput, placeInput, notesInput, status, submit }));
 
     const settingsLink = el("button", { class: "cap-link", type: "button", onclick: openSettings },
       hasToken() ? "GitHub token set ✓ · change" : "Set up one-tap publishing");
 
     card.append(
-      field("Tree", sel),
+      field("Tree", el("div", { class: "cap-picker" }, search, results)),
       field("Photos", fileInput), preview,
       field("Date", dateInput),
       field("Place", placeInput),
@@ -395,8 +422,8 @@ const TREES = [
   const field = (label, control) =>
     el("label", { class: "cap-field" }, el("span", { class: "cap-label" }, label), control);
 
-  async function doPublish({ sel, dateInput, placeInput, notesInput, status, submit }) {
-    const t = BY_SLUG[sel.value];
+  async function doPublish({ dateInput, placeInput, notesInput, status, submit }) {
+    const t = BY_SLUG[capSlug];
     if (!t)                  { status.textContent = "Pick a tree first."; return; }
     if (!pendingBlobs.length) { status.textContent = "Add at least one photo first."; return; }
 
